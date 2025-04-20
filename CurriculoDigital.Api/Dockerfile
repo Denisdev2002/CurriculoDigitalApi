@@ -4,9 +4,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
+EXPOSE 7128
 
 # Esta fase é usada para compilar o projeto de serviço
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -27,4 +25,6 @@ RUN dotnet publish "./CurriculoDigital.Api.csproj" -c $BUILD_CONFIGURATION -o /a
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY CurriculoDigital.Infra/Data /app/Data
+
 ENTRYPOINT ["dotnet", "CurriculoDigital.Api.dll"]

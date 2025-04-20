@@ -1,18 +1,22 @@
-﻿using CurriculoDigital.Domain.Entities.Personal;
-using CurriculoDigital.Domain.IRepository;
-using CurriculoDigital.Domain.Services.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CurriculoDigital.Application.DTOs;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace CurriculoDigital.Domain.Services
 {
-    public class PersonalInformationService : ServiceGeneric<PersonalInformation>
+    public class PersonalInformationService
     {
-        public PersonalInformationService(IRepositoryGeneric<PersonalInformation> repository) : base(repository)
+        private readonly string _jsonPath;
+
+        public PersonalInformationService(string jsonPath)
         {
+            _jsonPath = jsonPath;
+        }
+
+        public async Task<IEnumerable<PersonalInformationDTO>> GetAllAsync()
+        {
+            var json = await File.ReadAllTextAsync(_jsonPath);
+            return JsonSerializer.Deserialize<List<PersonalInformationDTO>>(json);
         }
     }
 }

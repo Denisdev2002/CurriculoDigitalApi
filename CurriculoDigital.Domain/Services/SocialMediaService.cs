@@ -1,19 +1,22 @@
-﻿using CurriculoDigital.Domain.Entities.Midias;
-using CurriculoDigital.Domain.Entities.Personal;
-using CurriculoDigital.Domain.IRepository;
-using CurriculoDigital.Domain.Services.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CurriculoDigital.Application.DTOs;
+using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace CurriculoDigital.Domain.Services
 {
-    public class SocialMediaService : ServiceGeneric<SocialMedia>
+    public class SocialMediaService
     {
-        public SocialMediaService(IRepositoryGeneric<SocialMedia> repository) : base(repository)
+        private readonly string _jsonPath;
+
+        public SocialMediaService(string jsonPath)
         {
+            _jsonPath = jsonPath;
+        }
+
+        public async Task<IEnumerable<SocialMediaDTO>> GetAllAsync()
+        {
+            var json = await File.ReadAllTextAsync(_jsonPath);
+            return JsonSerializer.Deserialize<List<SocialMediaDTO>>(json);
         }
     }
 }

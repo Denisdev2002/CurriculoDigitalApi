@@ -1,13 +1,25 @@
-﻿using CurriculoDigital.Api.Controllers.Base;
-using CurriculoDigital.Domain.Entities.Personal;
-using CurriculoDigital.Domain.Services.Base;
+﻿using CurriculoDigital.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurriculoDigital.Api.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    public class ExperienceController : ControllerGeneric<Experience>
+    [ApiKeyAuth]
+    public class ExperienceController : ControllerBase
     {
-        public ExperienceController(ServiceGeneric<Experience> service) : base(service) { }
+        private readonly ExperienceService _service;
+
+        public ExperienceController(ExperienceService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var data = await _service.GetAllAsync();
+            return Ok(data);
+        }
     }
 }

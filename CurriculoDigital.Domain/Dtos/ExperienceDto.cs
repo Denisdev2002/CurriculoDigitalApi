@@ -2,12 +2,13 @@
 {
     public class ExperienceDTO
     {
-        public string CompanyName { get; set; }
-        public string JobDescription { get; set; }
-        public string ImageCompanyUrl { get; set; }
-        public long PersonalInformationId { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public string companyName { get; set; }
+        public string jobDescription { get; set; }
+        public string workdescription { get; set; }
+        public string imageCompanyUrl { get; set; }
+        public long personalInformationId { get; set; }
+        public DateTime startDate { get; set; }
+        public DateTime? endDate { get; set; }
     }
 }
 

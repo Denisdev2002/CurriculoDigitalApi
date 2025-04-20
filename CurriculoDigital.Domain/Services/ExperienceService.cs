@@ -1,19 +1,18 @@
-﻿using CurriculoDigital.Domain.Entities.Personal;
-using CurriculoDigital.Domain.IRepository;
-using CurriculoDigital.Domain.Services.Base;
-using CurriculoDigital.Infra.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CurriculoDigital.Application.DTOs;
+using System.Text.Json;
 
-namespace CurriculoDigital.Domain.Services
+public class ExperienceService
 {
-    public class ExperienceService : ServiceGeneric<Experience>
+    private readonly string _jsonPath;
+
+    public ExperienceService(string jsonPath)
     {
-        public ExperienceService(IRepositoryGeneric<Experience> repository) : base(repository)
-        {
-        }
+        _jsonPath = jsonPath;
+    }
+
+    public async Task<IEnumerable<ExperienceDTO>> GetAllAsync()
+    {
+        var json = await File.ReadAllTextAsync(_jsonPath);
+        return JsonSerializer.Deserialize<List<ExperienceDTO>>(json);
     }
 }

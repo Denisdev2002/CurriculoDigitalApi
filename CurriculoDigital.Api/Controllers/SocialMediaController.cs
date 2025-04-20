@@ -1,13 +1,25 @@
-﻿using CurriculoDigital.Api.Controllers.Base;
-using CurriculoDigital.Domain.Entities.Midias;
-using CurriculoDigital.Domain.Services.Base;
+﻿using CurriculoDigital.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurriculoDigital.Api.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    public class SocialMediaController : ControllerGeneric<SocialMedia>
+    [ApiKeyAuth]
+    public class SocialMediaController : ControllerBase
     {
-        public SocialMediaController(ServiceGeneric<SocialMedia> service) : base(service) { }
+        private readonly SocialMediaService _service;
+
+        public SocialMediaController(SocialMediaService service)
+        {
+            _service = service;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var data = await _service.GetAllAsync();
+            return Ok(data);
+        }
     }
 }

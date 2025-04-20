@@ -2,11 +2,11 @@
 {
     public class PersonalInformationDTO
     {
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Location { get; set; }
-        public string Email { get; set; }
-        public string Apresentation { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string name { get; set; }
+        public string phone { get; set; }
+        public string location { get; set; }
+        public string email { get; set; }
+        public string apresentation { get; set; }
+        public DateTime dateOfBirth { get; set; }
     }
 }

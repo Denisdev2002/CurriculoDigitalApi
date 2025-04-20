@@ -1,44 +1,65 @@
-using CurriculoDigital.Domain.IRepository;
 using CurriculoDigital.Domain.Services;
-using CurriculoDigital.Domain.Services.Base;
-using CurriculoDigital.Infra;
-using CurriculoDigital.Infra.Base;
-using CurriculoDigital.Infra.Interfaces;
-using CurriculoDigital.Infra.Repositories;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
-builder.Services.AddScoped(typeof(IRepositoryGeneric<>), typeof(RepositoryGeneric<>));
+builder.Services.AddScoped(provider =>
+{
+    var env = provider.GetRequiredService<IWebHostEnvironment>();
+    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "socialMedia.json");
+    return new SocialMediaService(jsonPath);
+});
+builder.Services.AddScoped(provider =>
+{
+    var env = provider.GetRequiredService<IWebHostEnvironment>();
+    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "personalInformation.json");
+    return new PersonalInformationService(jsonPath);
+});
+builder.Services.AddScoped(provider =>
+{
+    var env = provider.GetRequiredService<IWebHostEnvironment>();
+    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "experience.json");
+    return new ExperienceService(jsonPath);
+});
+builder.Services.AddScoped(provider =>
+{
+    var env = provider.GetRequiredService<IWebHostEnvironment>();
+    var jsonPath = Path.Combine(env.ContentRootPath, "..", "CurriculoDigital.Infra", "Data", "project.json");
+    return new ProjectService(jsonPath);
+});
 
-builder.Services.AddScoped<ISocialMediaRepository, SocialMediaRepository>();
-builder.Services.AddScoped<IPersonalInformationRepository, PersonalInformationRepository>();
-builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+});
 
-builder.Services.AddScoped(typeof(ServiceGeneric<>));
-
-builder.Services.AddScoped<SocialMediaService>();
-builder.Services.AddScoped<PersonalInformationService>();
-builder.Services.AddScoped<ExperienceService>();
-
-builder.Services.AddDbContext<DatabaseContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
+
+app.UseStaticFiles();
+
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

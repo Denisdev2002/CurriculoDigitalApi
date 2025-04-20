@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Denis Honório dos Santos da Silva",
+    "phone": "(14) 99677-7165",
+    "location": "Vera Cruz, SP",
+    "email": "denishonorio7@gmail.com",
+    "apresentation": "Desenvolvedor .NET apaixonado por código limpo! Venho me dedicando no desenvolvimento de habilidades que ao meu ver são essenciais para um bom desenvolvedor, sendo elas: a capacidade de refatorar o seu código, criar linhas de código limpas e coerentes. Mais algumas habilidades que estou desenvolvendo são: desenvolvimento frontend com o framework React.js, banco de dados PostgreSQL e, através da minha pós, estou buscando aprender mais sobre o Java, uma linguagem de mercado.",
+    "dateOfBirth": "2002-06-14"
+  }
+]

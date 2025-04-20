@@ -6,11 +6,11 @@ namespace CurriculoDigital.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [ApiKeyAuth]
-    public class PersonalInformationController : ControllerBase
+    public class ProjectController : ControllerBase
     {
-        private readonly PersonalInformationService _service;
+        private readonly ProjectService _service;
 
-        public PersonalInformationController(PersonalInformationService service)
+        public ProjectController(ProjectService service)
         {
             _service = service;
         }

@@ -7,6 +7,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="Data\experience.json" />
+		<None Remove="Data\personalInformation.json" />
+		<None Remove="Data\socialMedia.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Data\experience.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\personalInformation.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\socialMedia.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
