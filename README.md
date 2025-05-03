@@ -23,13 +23,12 @@ Esta é a **API backend** desenvolvida em **ASP.NET Core 8.0** que serve como ba
 ---
 
 ## 🧱 Estrutura
-
-  CurriculoDigital.Api/
-  ├── Controllers/
-  ├── Domain/
-  ├── Application/
-  ├── Infra/
-  └── Data/
+    CurriculoDigital.Api/
+    ├── Controllers/
+    ├── Domain/
+    ├── Application/
+    ├── Infra/
+    └── Data/
       ├── experience.json
       ├── personalInformation.json
       └── socialMedia.json
