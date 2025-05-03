@@ -1,4 +1,5 @@
-﻿using CurriculoDigital.Domain.Services;
+﻿using CurriculoDigital.Api.Filters;
+using CurriculoDigital.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurriculoDigital.Api.Controllers

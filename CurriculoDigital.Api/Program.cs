@@ -4,6 +4,17 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
+void AddJsonService<TService>(string fileName) where TService : class
+{
+    builder.Services.AddScoped(provider =>
+    {
+        var env = provider.GetRequiredService<IWebHostEnvironment>();
+        var jsonPath = Path.Combine(env.ContentRootPath, "Data", fileName);
+        return Activator.CreateInstance(typeof(TService), jsonPath) as TService
+               ?? throw new InvalidOperationException($"Failed to create {typeof(TService)}");
+    });
+}
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -14,37 +25,15 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddAuthorization();
+
 // Add services to the container.
-builder.Services.AddScoped(provider =>
-{
-    var env = provider.GetRequiredService<IWebHostEnvironment>();
-    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "socialMedia.json");
-    return new SocialMediaService(jsonPath);
-});
-builder.Services.AddScoped(provider =>
-{
-    var env = provider.GetRequiredService<IWebHostEnvironment>();
-    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "personalInformation.json");
-    return new PersonalInformationService(jsonPath);
-});
-builder.Services.AddScoped(provider =>
-{
-    var env = provider.GetRequiredService<IWebHostEnvironment>();
-    var jsonPath = Path.Combine(env.ContentRootPath, "Data", "experience.json");
-    return new ExperienceService(jsonPath);
-});
-builder.Services.AddScoped(provider =>
-{
-    var env = provider.GetRequiredService<IWebHostEnvironment>();
-    var jsonPath = Path.Combine(env.ContentRootPath, "..", "CurriculoDigital.Infra", "Data", "project.json");
-    return new ProjectService(jsonPath);
-});
+AddJsonService<SocialMediaService>("socialMedia.json");
+AddJsonService<PersonalInformationService>("personalInformation.json");
+AddJsonService<ExperienceService>("experience.json");
+AddJsonService<ProjectService>("project.json");
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-});
-
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

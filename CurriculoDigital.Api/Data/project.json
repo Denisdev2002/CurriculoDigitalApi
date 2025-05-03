@@ -1,0 +1,30 @@
+[
+    {
+        "nameProjet": "Currículo Digital",
+        "technology": [ "C#", "React.js", "Next.js", "TypeScript", "Jest" ],
+        "descriptionProject": "Projeto criado com o intuito de desenvolver e aplicar conhecimentos em React.js e aprender sobre testes de interface utilizando o Jest.",
+        "linkProject": "https://l.instagram.com/?u=https%3A%2F%2Fmeucurriculo.space%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAac8hdH4uM8O3NRFg0hsvobtokFR_0AN7Uz0sw49oT70W4KIhlTRdp39RJ4eAQ_aem_2Kc4RyYYA9m02zumMGM9_A&e=AT113VWSsJeHQTqMIXdiprF1IKC8tR0QO-sZwJy8XUEy2kCyowxav_eZi_EwjD52uwk8TcoNrICZWInIcFZzWmFIK09_x_5OqL55lc3_134U5UAgOUqbm_w",
+        "owner": "yes"
+    },
+    {
+        "nameProjet": "Sharebooks",
+        "technology": [ "C#", "TypeScript", "Angular", "Entity Framework", "Docker" ],
+        "descriptionProject": "O Sharebook é um aplicativo open source de doação de livros, criado em 2018. Contribuí com a implementação de logs utilizando o Serilog.",
+        "linkProject": "https://www.sharebook.com.br/",
+        "owner": "no"
+    },
+    {
+        "nameProjet": "Coding Challenge",
+        "technology": [ "C#", "Git", "Linq" ],
+        "descriptionProject": "Repositório criado para documentar e resolver desafios do site Coding Challenges. O objetivo é aprimorar habilidades de programação, lógica e boas práticas, com organização modular e análise de cada solução.",
+        "linkProject": "https://github.com/Denisdev2002/Coding-Challenge",
+        "owner": "yes"
+    },
+    {
+        "nameProjet": "Bot Gerador de Currículo",
+        "technology": [ ".NET", "Telegram", "Razor", "RazorLight", "DinkToPdf", "Doxygen" ],
+        "descriptionProject": "Bot do Telegram desenvolvido em .NET 8 que coleta dados interativos do usuário e gera currículos em PDF com base em templates Razor. Utiliza fluxo inteligente, templates personalizáveis e documentação via Doxygen.",
+        "linkProject": "https://github.com/Denisdev2002/CurriculoPdfBot",
+        "owner": "yes"
+    }
+]

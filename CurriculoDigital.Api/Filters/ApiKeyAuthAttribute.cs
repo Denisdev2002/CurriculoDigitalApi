@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 
-namespace CurriculoDigital.Api.Controllers
+namespace CurriculoDigital.Api.Filters // sugestão: pasta separada de filters
 {
     public class ApiKeyAuthAttribute : Attribute, IAuthorizationFilter
     {
