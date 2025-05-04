@@ -3,7 +3,7 @@
         "nameProjet": "Currículo Digital",
         "technology": [ "C#", "React.js", "Next.js", "TypeScript", "Jest" ],
         "descriptionProject": "Projeto criado com o intuito de desenvolver e aplicar conhecimentos em React.js e aprender sobre testes de interface utilizando o Jest.",
-        "linkProject": "https://l.instagram.com/?u=https%3A%2F%2Fmeucurriculo.space%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAac8hdH4uM8O3NRFg0hsvobtokFR_0AN7Uz0sw49oT70W4KIhlTRdp39RJ4eAQ_aem_2Kc4RyYYA9m02zumMGM9_A&e=AT113VWSsJeHQTqMIXdiprF1IKC8tR0QO-sZwJy8XUEy2kCyowxav_eZi_EwjD52uwk8TcoNrICZWInIcFZzWmFIK09_x_5OqL55lc3_134U5UAgOUqbm_w",
+        "linkProject": "http://meucurriculo.space:3000/",
         "owner": "yes"
     },
     {

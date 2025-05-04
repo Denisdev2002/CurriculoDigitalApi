@@ -25,6 +25,6 @@ RUN dotnet publish "./CurriculoDigital.Api.csproj" -c $BUILD_CONFIGURATION -o /a
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY CurriculoDigital.Infra/Data /app/Data
+COPY CurriculoDigital.Api/Data /app/Data
 
 ENTRYPOINT ["dotnet", "CurriculoDigital.Api.dll"]

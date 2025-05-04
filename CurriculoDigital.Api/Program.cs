@@ -19,11 +19,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy
+            .SetIsOriginAllowed(_ => true) // libera qualquer domínio
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
+
 
 builder.Services.AddAuthorization();
 
@@ -43,12 +45,11 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-
 app.UseCors("AllowAll");
 
 app.UseStaticFiles();
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
