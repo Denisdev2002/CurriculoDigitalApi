@@ -1,6 +1,4 @@
 using CurriculoDigital.Domain.Services;
-using Microsoft.Extensions.FileProviders;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +32,7 @@ AddJsonService<SocialMediaService>("socialMedia.json");
 AddJsonService<PersonalInformationService>("personalInformation.json");
 AddJsonService<ExperienceService>("experience.json");
 AddJsonService<ProjectService>("project.json");
+AddJsonService<CoursesService>("courses.json");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

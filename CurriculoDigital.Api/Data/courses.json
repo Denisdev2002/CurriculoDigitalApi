@@ -1,0 +1,34 @@
+[
+    {
+        "curso": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+        "instituicao": "Faculdade de Marília - Unimar",
+        "dataInicio": "2022-02",
+        "dataFim": "2024-12",
+        "descricao": "Curso superior tecnológico voltado à formação de profissionais capacitados para atuar no desenvolvimento de software, com foco em análise, projeto e implementação de sistemas computacionais. O currículo inclui disciplinas como programação, bancos de dados, engenharia de software e gestão de projetos.",
+        "status": "Concluído"
+    },
+    {
+        "curso": "Pós-graduação Lato Sensu em Desenvolvimento de Sistemas com Java",
+        "instituicao": "Unicesumar",
+        "dataInicio": "2025-04",
+        "dataFim": "2025-12",
+        "descricao": "Especialização voltada ao desenvolvimento de sistemas web utilizando a linguagem Java. O curso aborda as principais especificações, ferramentas e boas práticas da linguagem no contexto de aplicações corporativas.",
+        "status": "Cursando"
+    },
+    {
+        "curso": "Banco de Dados e Linguagem SQL com PostgreSQL",
+        "instituicao": "Udemy",
+        "dataInicio": "2025-01",
+        "dataFim": "2025-05",
+        "descricao": "Curso introdutório ao banco de dados PostgreSQL, abordando suas funcionalidades, características e comandos SQL essenciais. Oferece uma visão abrangente da linguagem SQL e sua aplicação prática com o PostgreSQL.",
+        "status": "Concluído"
+    },
+    {
+        "curso": "React.js com TypeScript: Do Zero ao Avançado na Prática",
+        "instituicao": "Udemy",
+        "dataInicio": "2025-05",
+        "dataFim": "...",
+        "descricao": "Curso prático de desenvolvimento com React.js utilizando TypeScript, ensinando como criar interfaces modernas e funcionais com foco em boas práticas, padrões de projeto e organização de código.",
+        "status": "Cursando"
+    }
+]
